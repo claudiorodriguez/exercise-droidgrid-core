@@ -1,4 +1,4 @@
-# rgba-to-datauri
+# exercise-droidgrid-core
 
 [![Build Status][travis-image]][travis-url]
 
