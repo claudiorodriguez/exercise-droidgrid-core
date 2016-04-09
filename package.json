@@ -1,0 +1,29 @@
+{
+  "name": "exercise-droidgrid-core",
+  "version": "0.0.1",
+  "description": "Performs droid placement and movement operations on a 2D grid, checking for collision.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/claudiorodriguez/exercise-droidgrid-core.git"
+  },
+  "keywords": [
+    "grid",
+    "collision",
+    "exercise"
+  ],
+  "author": "Claudio Rodriguez <cjrodr@yahoo.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/claudiorodriguez/exercise-droidgrid-core/issues"
+  },
+  "homepage": "https://github.com/claudiorodriguez/exercise-droidgrid-core#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  }
+}
