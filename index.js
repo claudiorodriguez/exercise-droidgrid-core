@@ -23,15 +23,22 @@ const _extend = function(dst) {
 
 
 /**
- * Performs droid placement and movement operations on a 2D grid, checking for collision.
- * Droids are placed and moved sequentially: place droid 1, move droid 1, place droid 2,
- * move droid 2, and so on. A droid can be placed, and then not moved (it will lose its
- * chance to move when a new droid is placed).
- *
- * Options:
- *  - width: width of the grid (default 16)
- *  - height: height of the grid (default 16)
- * Usage:
+  Performs droid placement and movement operations on a 2D grid, checking for collision.
+  Droids are placed and moved sequentially: place droid 1, move droid 1, place droid 2,
+  move droid 2, and so on. A droid can be placed, and then not moved (it will lose its
+  chance to move when a new droid is placed).
+
+  Options:
+   - width: width of the grid (default 16)
+   - height: height of the grid (default 16)
+
+  Usage:
+    const DroidGrid = require('droidgrid');
+    const opts = { width: 6, height: 6 };
+    let grid = new DroidGrid(opts);
+    grid.placeDroid(1, 2, 'north');
+    grid.moveDroid(['left', 'move', 'right', 'move']);
+    let snapshot = grid.snapshot();
  */
 function DroidGrid(options) {
   var defaults = {
