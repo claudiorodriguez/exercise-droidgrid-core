@@ -80,5 +80,19 @@ exports['Test placement and movement'] = {
     expect(newBadGrid).to.throw(Error);
 
     done();
+  },
+
+  'zero-value coords': function(done) {
+    const opts = { width: 2, height: 2 };
+
+    function makeGrid() {
+      let grid = new DroidGrid(opts);
+      grid.placeDroid(0, 0, 'north');
+      grid.moveDroid(['move','left','left','move']);
+    }
+
+    expect(makeGrid).to.not.throw(Error);
+
+    done();
   }
 };

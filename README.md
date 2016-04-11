@@ -19,7 +19,7 @@ $ npm install git+https://github.com/claudiorodriguez/exercise-droidgrid-core.gi
 **Node.JS**
 
 ```javascript
-const DroidGrid = require('droidgrid');
+const DroidGrid = require('exercise-droidgrid-core');
 
 const opts = { width: 6, height: 6 };
 let grid = new DroidGrid(opts);

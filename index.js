@@ -66,7 +66,7 @@ DroidGrid.prototype.init = function() {
 // TODO: Refactor these valid* into callback form maybe, better error handling
 DroidGrid.prototype.validDroidObject = function (droid) {
   function validCoordinate (coord, bound) {
-    return coord && Number.isInteger(coord) && coord < bound;
+    return coord !== undefined && Number.isInteger(coord) && coord < bound && coord >= 0;
   }
   return validCoordinate(droid.x, this.width) && validCoordinate(droid.y, this.height);
 };
@@ -79,7 +79,7 @@ DroidGrid.prototype.validDroidCoordinates = function (droid) {
   function withinBounds (droid) {
     return droid.x !== undefined && droid.y !== undefined && droid.x >= 0 && droid.y >= 0;
   }
-  return droid && (typeof droid === 'object') && withinBounds(droid) && validFacing(droid);
+  return droid && (typeof droid === 'object') && this.validDroidObject(droid) && withinBounds(droid) && validFacing(droid);
 };
 
 DroidGrid.prototype.droidsOverlapping = function (droids) {
