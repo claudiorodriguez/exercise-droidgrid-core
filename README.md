@@ -20,21 +20,21 @@ $ npm install git+https://github.com/claudiorodriguez/exercise-droidgrid-core.gi
 
 ```javascript
 const DroidGrid = require('exercise-droidgrid-core');
+const Grid = DroidGrid.Grid;
+const Droid = DroidGrid.Droid;
 
-const opts = { width: 6, height: 6 };
-let grid = new DroidGrid(opts);
-grid.placeDroid(1, 2, 'north'); // x, y, facing (north|south|east|west)
-grid.moveDroid(['left', 'move', 'right', 'move']); // array of left|right|move
-grid.placeDroid(1, 3, 'north'); // droids are placed sequentially
+let grid = new Grid(6, 6);
+let droid1 = new Droid(1, 2, 'north'); // x, y, facing (north|south|east|west)
+grid.add(droid1);
+grid.execute(['left', 'move', 'right', 'move']); // array of left|right|move
+grid.add(new Droid(1, 3, 'north')); // droids are placed sequentially
 // you will keep moving the same droid in consecutive moveDroid calls:
-grid.moveDroid(['left', 'right', 'left']);
-grid.moveDroid('move'); // this will throw an error (collision)
-grid.placeDroid(0, 3, 'east'); // this will also throw an error (occupied)
+grid.execute(['left', 'right', 'left']);
+grid.execute('move'); // this will throw an error (collision)
+grid.add(new Droid(0, 3, 'east')); // this will also throw an error (occupied)
 
 // gets a dump of the grid's current state in object form
-let snapshot = grid.snapshot();
-// create a grid from a snapshot:
-let anotherGrid = new DroidGrid(snapshot);
+let dump = grid.dump();
 ```
 
 ## Testing
